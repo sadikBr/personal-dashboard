@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import useLocalStorage from './useLocalStorage';
 
 const options = {
   method: 'GET',
@@ -9,10 +10,15 @@ const options = {
 };
 
 export default function useWeather() {
-  const [weatherInfo, setWeatherInfo] = useState({});
+  const { items: weatherInfo, setItems: setWeatherInfo } =
+    useLocalStorage('weather');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    if ('temperature' in weatherInfo) {
+      setLoading(false);
+      return;
+    }
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
         axios

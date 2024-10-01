@@ -1,9 +1,8 @@
 /* eslint-disable react/prop-types */
+import { useMemo } from 'react';
 import classes from './SideSummary.module.css';
 
-import { useMemo } from 'react';
-
-const SideSummary = ({ todos, appointments }) => {
+const SideSummary = ({ todos, appointments, weatherInfo, loading }) => {
   const numberOf = useMemo(
     () => ({
       todos:
@@ -64,7 +63,20 @@ const SideSummary = ({ todos, appointments }) => {
         <h1>{getDay()}</h1>
         <p>{getDate()}</p>
       </div>
-      <div>Placeholder | Will contain whether information</div>
+      <div>
+        {loading ? (
+          'Loading ....'
+        ) : (
+          <div className={classes.weatherInfo}>
+            <div>
+              {weatherInfo.city}, {weatherInfo.country}
+            </div>
+            <div>The temperature outside is</div>
+            <h1>{weatherInfo.temperature}°C</h1>
+            <img src={weatherInfo.icon} alt={weatherInfo.temperature} />
+          </div>
+        )}
+      </div>
     </div>
   );
 };

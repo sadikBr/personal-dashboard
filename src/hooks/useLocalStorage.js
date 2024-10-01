@@ -6,8 +6,8 @@ export default function useLocalStorage(key) {
       return JSON.parse(localStorage.getItem(key));
     }
 
-    localStorage.setItem(key, JSON.stringify([]));
-    return [];
+    localStorage.setItem(key, JSON.stringify(key === 'weather' ? {} : []));
+    return key === 'weather' ? {} : [];
   });
 
   useEffect(() => {

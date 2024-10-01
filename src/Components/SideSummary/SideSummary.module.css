@@ -14,9 +14,43 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
+}
+
+.summary div:nth-child(3) h1 {
+  margin-bottom: 0.75vmin;
+}
+
+.summary div:nth-child(3) p {
+  margin-top: 0.75vmin;
 }
 
 .summary div:last-child {
   margin-bottom: 0;
   flex: 4;
+}
+
+.weatherInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.weatherInfo div {
+  margin-bottom: 0.75vmin;
+  font-size: 2vmin;
+}
+
+.weatherInfo h1 {
+  font-size: 5vmin;
+  margin-bottom: 2vmin;
+}
+
+.weatherInfo img {
+  margin-top: 2vmin;
+  width: 13vmin;
+  object-fit: cover;
+  aspect-ratio: 1/1;
 }

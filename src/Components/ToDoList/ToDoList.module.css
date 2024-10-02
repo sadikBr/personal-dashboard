@@ -28,8 +28,8 @@
   margin-left: 1vmin;
   font-size: 2vmin;
   width: 3vmin;
-  color: black;
-  border: 3px solid black;
+  color: rgba(255, 255, 255, 0.75);
+  border: 3px solid rgba(255, 255, 255, 0.75);
   border-radius: 0.5vmin;
   display: flex;
   align-items: center;
@@ -39,9 +39,9 @@
 }
 
 .todo button:hover {
-  background-color: black;
+  background-color: rgba(255, 255, 255, 0.75);
   transition: all 0.25 ease-in-out;
-  color: white;
+  color: gray;
 }
 
 .form {
